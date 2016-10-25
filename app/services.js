@@ -44,7 +44,7 @@ angular.module("app.ui.services", []).factory("loggit", [
 
     ArtistListingObj.getArtists = function(callback){
 
-      $http.get('dist/data/artists.json').success(function(data) {
+      $http.get('data/artists.php').success(function(data) {
 
         artists = data;
 
@@ -103,7 +103,7 @@ angular.module("app.ui.services", []).factory("loggit", [
 
     GenresListingObj.getGenres = function(callback){
 
-      $http.get('dist/data/genres.json').success(function(data) {
+      $http.get('data/genres.php').success(function(data) {
 
         genres = data;
 

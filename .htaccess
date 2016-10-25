@@ -1,0 +1,9 @@
+Options -Indexes
+ErrorDocument 401 /401.php
+ErrorDocument 403 /403.php
+ErrorDocument 404 /404.php
+ErrorDocument 500 /500.php
+RewriteEngine On
+RewriteRule ^data/artists?$ data/artists.php
+RewriteRule ^data/albums?$ data/albums.php
+RewriteRule ^data/genres?$ data/genres.php

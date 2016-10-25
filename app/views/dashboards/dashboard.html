@@ -29,48 +29,6 @@
           <div class="panel-body panel-body--dashboard">
 
             <tabset class="ui-tab">
-              <tab heading="New Artists">
-
-                <div class="divider"></div>
-
-                <div data-ng-controller="ArtistListingCtrl as artistListing">
-                  <div class="row music-covers-listing minified">
-
-                    <div data-ng-repeat="artistItem in ArtistsSrv.artists" class="col-md-3">
-
-                      <div class="list-item__wrap">
-
-                        <div class="list-item__image">
-                          <img ng-src="{{artistItem.image}}"/>
-                          <div class="list-item__play">
-                            <a class="list-item__play-button" ng-href="#/artist/{{artistItem.url_name}}">
-                              <i class="fa fa-2x fa-stumbleupon">
-
-                              </i>
-                            </a>
-                          </div>
-                        </div>
-
-                        <div class="list-item__name">
-                          <h6>
-                            {{artistItem.name}}
-                          </h6>
-                        </div>
-
-                        <div class="list-item__style">
-                          <div class="artist-genre" ng-repeat="genre in artistItem.genre">
-                            <span>{{genre}}</span>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-
-                  </div>
-                </div>
-
-              </tab>
-
               <tab heading="New albums">
 
                 <div class="divider"></div>
@@ -83,7 +41,7 @@
                       <div class="list-item__wrap">
 
                         <div class="list-item__image">
-                          <img ng-src="{{album.image}}"/>
+                          <img ng-src="data/images/{{album.artist}}/{{album.name}}/{{album.image}}"/>
                           <div class="list-item__play">
                             <a class="list-item__play-button" ng-href="#/artist/{{album.url_name}}">
                               <i class="fa fa-2x fa-stumbleupon">
@@ -101,12 +59,6 @@
                             {{album.name}}
                           </h6>
                         </div>
-
-                        <div class="list-item__style">
-                          <div class="artist-genre" ng-repeat="genre in album.genre">
-                            <span>{{genre}}</span>
-                          </div>
-                        </div>
                       </div>
 
                     </div>
@@ -116,43 +68,6 @@
 
               </tab>
 
-              <tab heading="Genres">
-
-                <div class="divider"></div>
-
-                <div data-ng-controller="GenresCtrl as genres">
-
-                  <div class="row music-genres-listing">
-
-                    <div data-ng-repeat="genre in GenresSrv.genres" class="col-md-3">
-
-                      <div class="list-item__wrap">
-
-                        <a href="#/artist/{{genre.url_name}}">
-                          <div class="list-item__image">
-                            <img ng-src="{{genre.image}}" alt="genre image"/>
-                            <div class="list-item__name">
-                              <div class="genre-icon">
-                                <i class="{{genre.icon}}">
-
-                                </i>
-                              </div>
-                              <h5>
-                                {{genre.name}}
-                              </h5>
-                            </div>
-
-                          </div>
-                        </a>
-                      </div>
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </tab>
 
             </tabset>
 
