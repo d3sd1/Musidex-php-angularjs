@@ -3,7 +3,16 @@ ErrorDocument 401 /401.php
 ErrorDocument 403 /403.php
 ErrorDocument 404 /404.php
 ErrorDocument 500 /500.php
+Options -Indexes
+
 RewriteEngine On
 RewriteRule ^data/artists?$ data/artists.php
 RewriteRule ^data/albums?$ data/albums.php
 RewriteRule ^data/genres?$ data/genres.php
+RewriteRule ^data/artistPage/(\w+)?$ data/artistPage.php?name=$1
+#Protect JSON files
+#Protect CONFIG file
+<Files .conf>
+Order allow,deny
+Deny from all
+</Files>

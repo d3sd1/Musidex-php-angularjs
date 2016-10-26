@@ -14589,7 +14589,22 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
                     this.$domEl.playbackRate = a
                 },
                 setVolume: function(a) {
-                    this.$domEl.volume = a
+					if(a < 1 && a > 0)
+					{
+						this.$domEl.volume = a
+					}
+					else if(a > 0)
+					{
+						this.$domEl.volume = 1
+					}
+					else if(a < 0)
+					{
+						this.$domEl.volume = 0
+					}
+					else
+					{
+						this.$domEl.volume = 1
+					}
                 },
                 seek: function(a) {
                     var b, c = 0;
@@ -19012,7 +19027,7 @@ ngMap.directive("infoWindow", ["Attr2Options", function(Attr2Options) {
 var app = angular.module("app", ["ngRoute", "ngAnimate", "app.config", "ui.bootstrap", "mgo-angular-wizard", "ui.tree", "ngMap", "ngTagsInput", "app.ui.ctrls", "app.ui.services", "app.controllers", "app.directives", "app.form.validation", "app.ui.form.ctrls", "app.ui.form.directives", "app.tables", "app.map", "countTo", "mediaPlayer", "ngDragDrop", "app.music"]).run(["$rootScope", "$location", "loggit", function($rootScope, $location, loggit) {
     $(document).ready(function() {
         setTimeout(function() {
-            $(".page-loading-overlay").addClass("loaded"), $(".load_circle_wrapper").addClass("loaded"), loggit.logSuccess("Welcome to Groovy! Navigate and add songs to your playlists.")
+            $(".page-loading-overlay").addClass("loaded"), $(".load_circle_wrapper").addClass("loaded")
         }, 1e3)
     })
 }]).config(["$routeProvider", function($routeProvider) {
@@ -19930,26 +19945,25 @@ angular.module("app.map", []).directive("uiJqvmap", [function() {
                 album_release: album.album_release,
                 songs: []
             }), _.map(album.songs, function(song) {
-                var parseTitle = song.displayName.match(/(.*?)\s?-\s?(.*)?$/);
                 artistPlaylistVar.push({
                     image: song.image,
                     src: song.url,
                     url: song.url,
                     type: song.type,
-                    artist: parseTitle[1],
-                    title: parseTitle[2],
+                    artist: song.artist,
+                    title: song.displayName,
                     displayName: song.displayName
                 }), artistPlaylistAlbums[artistPlaylistAlbums.length - 1].songs.push({
                     image: song.image,
                     src: song.url,
                     url: song.url,
                     type: song.type,
-                    artist: parseTitle[1],
-                    title: parseTitle[2],
+                    artist: song.artist,
+                    title: song.displayName,
                     displayName: song.displayName
                 })
             })
-        }), $scope.artistName = response.name, $scope.artistImage = response.image, $scope.artistBanner = response.banner, $scope.artistGenre = response.genre, $scope.artistAbout = response.about)
+        }), $scope.artistName = response.name, $scope.artistImage = response.image, $scope.artistBanner = response.banner, $scope.artistGenre = response.genre)
     }), $scope.artistPlaylist = artistPlaylistVar, $scope.artistPlaylistAlbums = artistPlaylistAlbums, this.addSongs = function(playlist, callback) {
         _.each(artistPlaylistVar, function(audioElement) {
             playlist.push(angular.copy(audioElement)), artistPlaylistVar.indexOf(audioElement) + 1 == artistPlaylistVar.length && callback && callback()
@@ -20206,14 +20220,11 @@ angular.module("app.map", []).directive("uiJqvmap", [function() {
 }).factory("ArtistSrv", function($http) {
     var PlayListObj = {},
         artists = [];
-    return PlayListObj.getSongs = function(callback) {
-        $http.get("dist/data/artistsMusic.json").success(function(data) {
+    return  PlayListObj.getArtist = function(title, callback) {
+        $http.get("data/artistPage/" + title.toLowerCase()).success(function(data) {
             artists = data, PlayListObj.artists = artists, callback(data)
-        })
-    }, PlayListObj.getArtist = function(title, callback) {
-        PlayListObj.getSongs(function(data) {
             _.map(PlayListObj.artists, function(artistSongs) {
-                if (artistSongs.url_name == title) return callback(artistSongs)
+                return callback(artistSongs)
             })
         })
     }, PlayListObj
