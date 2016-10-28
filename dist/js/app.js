@@ -877,134 +877,7 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
             d.offset = d.offset || {}, d.offsetBottom && (d.offset.bottom = d.offsetBottom), d.offsetTop && (d.offset.top = d.offsetTop), b.call(c, d)
         })
     })
-}(jQuery), window.google = window.google || {}, google.maps = google.maps || {},
-    function() {
-        function getScript(src) {
-            document.write('<script src="' + src + '" type="text/javascript"></script>')
-        }
-        var modules = google.maps.modules = {};
-        google.maps.__gjsload__ = function(name, text) {
-            modules[name] = text
-        }, google.maps.Load = function(apiLoad) {
-            delete google.maps.Load, apiLoad([.009999999776482582, [
-                    [
-                        ["http://mt0.googleapis.com/vt?lyrs=m@279000000&src=api&hl=en&", "http://mt1.googleapis.com/vt?lyrs=m@279000000&src=api&hl=en&"], null, null, null, null, "m@279000000", ["https://mts0.google.com/vt?lyrs=m@279000000&src=api&hl=en&", "https://mts1.google.com/vt?lyrs=m@279000000&src=api&hl=en&"]
-                    ],
-                    [
-                        ["http://khm0.googleapis.com/kh?v=161&hl=en&", "http://khm1.googleapis.com/kh?v=161&hl=en&"], null, null, null, 1, "161", ["https://khms0.google.com/kh?v=161&hl=en&", "https://khms1.google.com/kh?v=161&hl=en&"]
-                    ],
-                    [
-                        ["http://mt0.googleapis.com/vt?lyrs=h@279000000&src=api&hl=en&", "http://mt1.googleapis.com/vt?lyrs=h@279000000&src=api&hl=en&"], null, null, null, null, "h@279000000", ["https://mts0.google.com/vt?lyrs=h@279000000&src=api&hl=en&", "https://mts1.google.com/vt?lyrs=h@279000000&src=api&hl=en&"]
-                    ],
-                    [
-                        ["http://mt0.googleapis.com/vt?lyrs=t@132,r@279000000&src=api&hl=en&", "http://mt1.googleapis.com/vt?lyrs=t@132,r@279000000&src=api&hl=en&"], null, null, null, null, "t@132,r@279000000", ["https://mts0.google.com/vt?lyrs=t@132,r@279000000&src=api&hl=en&", "https://mts1.google.com/vt?lyrs=t@132,r@279000000&src=api&hl=en&"]
-                    ], null, null, [
-                        ["http://cbk0.googleapis.com/cbk?", "http://cbk1.googleapis.com/cbk?"]
-                    ],
-                    [
-                        ["http://khm0.googleapis.com/kh?v=84&hl=en&", "http://khm1.googleapis.com/kh?v=84&hl=en&"], null, null, null, null, "84", ["https://khms0.google.com/kh?v=84&hl=en&", "https://khms1.google.com/kh?v=84&hl=en&"]
-                    ],
-                    [
-                        ["http://mt0.googleapis.com/mapslt?hl=en&", "http://mt1.googleapis.com/mapslt?hl=en&"]
-                    ],
-                    [
-                        ["http://mt0.googleapis.com/mapslt/ft?hl=en&", "http://mt1.googleapis.com/mapslt/ft?hl=en&"]
-                    ],
-                    [
-                        ["http://mt0.googleapis.com/vt?hl=en&", "http://mt1.googleapis.com/vt?hl=en&"]
-                    ],
-                    [
-                        ["http://mt0.googleapis.com/mapslt/loom?hl=en&", "http://mt1.googleapis.com/mapslt/loom?hl=en&"]
-                    ],
-                    [
-                        ["https://mts0.googleapis.com/mapslt?hl=en&", "https://mts1.googleapis.com/mapslt?hl=en&"]
-                    ],
-                    [
-                        ["https://mts0.googleapis.com/mapslt/ft?hl=en&", "https://mts1.googleapis.com/mapslt/ft?hl=en&"]
-                    ],
-                    [
-                        ["https://mts0.googleapis.com/mapslt/loom?hl=en&", "https://mts1.googleapis.com/mapslt/loom?hl=en&"]
-                    ]
-                ],
-                ["en", "US", null, 0, null, null, "http://maps.gstatic.com/mapfiles/", "http://csi.gstatic.com", "https://maps.googleapis.com", "http://maps.googleapis.com", null, "https://maps.google.com"],
-                ["http://maps.gstatic.com/maps-api-v3/api/js/18/14", "3.18.14"],
-                [3062753088], 1, null, null, null, null, null, "", null, null, 0, "http://khm.googleapis.com/mz?v=161&", null, "https://earthbuilder.googleapis.com", "https://earthbuilder.googleapis.com", null, "http://mt.googleapis.com/vt/icon", [
-                    ["http://mt0.googleapis.com/vt", "http://mt1.googleapis.com/vt"],
-                    ["https://mts0.googleapis.com/vt", "https://mts1.googleapis.com/vt"],
-                    [null, [
-                            [0, "m", 279e6]
-                        ],
-                        [null, "en", "US", null, 18, null, null, null, null, null, null, [
-                            [47],
-                            [37, [
-                                ["smartmaps"]
-                            ]]
-                        ]], 0
-                    ],
-                    [null, [
-                            [0, "m", 279e6]
-                        ],
-                        [null, "en", "US", null, 18, null, null, null, null, null, null, [
-                            [47],
-                            [37, [
-                                ["smartmaps"]
-                            ]]
-                        ]], 3
-                    ],
-                    [null, [
-                            [0, "m", 279e6]
-                        ],
-                        [null, "en", "US", null, 18, null, null, null, null, null, null, [
-                            [50],
-                            [37, [
-                                ["smartmaps"]
-                            ]]
-                        ]], 0
-                    ],
-                    [null, [
-                            [0, "m", 279e6]
-                        ],
-                        [null, "en", "US", null, 18, null, null, null, null, null, null, [
-                            [50],
-                            [37, [
-                                ["smartmaps"]
-                            ]]
-                        ]], 3
-                    ],
-                    [null, [
-                            [4, "t", 132],
-                            [0, "r", 132e6]
-                        ],
-                        [null, "en", "US", null, 18, null, null, null, null, null, null, [
-                            [63],
-                            [37, [
-                                ["smartmaps"]
-                            ]]
-                        ]], 0
-                    ],
-                    [null, [
-                            [4, "t", 132],
-                            [0, "r", 132e6]
-                        ],
-                        [null, "en", "US", null, 18, null, null, null, null, null, null, [
-                            [63],
-                            [37, [
-                                ["smartmaps"]
-                            ]]
-                        ]], 3
-                    ],
-                    [null, null, [null, "en", "US", null, 18], 0],
-                    [null, null, [null, "en", "US", null, 18], 3],
-                    [null, null, [null, "en", "US", null, 18], 6],
-                    [null, null, [null, "en", "US", null, 18], 0],
-                    ["https://mts0.google.com/vt", "https://mts1.google.com/vt"], "/maps/vt", 279e6, 132
-                ], 2, 500, ["http://geo0.ggpht.com/cbk", "http://g0.gstatic.com/landmark/tour", "http://g0.gstatic.com/landmark/config", "", "http://www.google.com/maps/preview/log204", "", "http://static.panoramio.com.storage.googleapis.com/photos/"],
-                ["https://www.google.com/maps/api/js/master?pb=!1m2!1u18!2s14!2sen!3sUS!4s18/14", "https://www.google.com/maps/api/js/widget?pb=!1m2!1u18!2s14!2sen"], 1, 0
-            ], loadScriptTime)
-        };
-        var loadScriptTime = (new Date).getTime();
-        getScript("https://maps.googleapis.com/maps/api/js")
-    }(),
+}(jQuery),
     /*! Copyright (c) 2011 Piotr Rochala (http://rocha.la)
      * Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php)
      * and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
@@ -19032,11 +18905,9 @@ var app = angular.module("app", ["ngRoute", "ngAnimate", "app.config", "ui.boots
     })
 }]).config(["$routeProvider", function($routeProvider) {
     return $routeProvider.when("/", {
-        redirectTo: "/dashboard"
-    }).when("/dashboard", {
-        templateUrl: "app/views/dashboards/dashboard.html"
-    }).when("/dashboard/dashboard", {
-        templateUrl: "app/views/dashboards/dashboard.html"
+        redirectTo: "/start"
+    }).when("/start", {
+        templateUrl: "template/start.php"
     }).when("/ui/typography", {
         templateUrl: "app/views/ui_elements/typography.html"
     }).when("/ui/buttons", {
@@ -19896,6 +19767,8 @@ angular.module("app.map", []).directive("uiJqvmap", [function() {
     $scope.ArtistsSrv = ArtistListingSrv, ArtistListingSrv.getArtists(function(data) {})
 }]).controller("AlbumsCtrl", ["$scope", "AlbumsListingSrv", function($scope, AlbumsListingSrv) {
     $scope.AlbumsSrv = AlbumsListingSrv, AlbumsListingSrv.getAlbums(function(data) {})
+}]).controller("SongsCtrl", ["$scope", "SongsListingSrv", function($scope, SongsListingSrv) {
+    $scope.SongsSrv = SongsListingSrv, SongsListingSrv.getSongs(function(data) {})
 }]).controller("GenresCtrl", ["$scope", "GenresListingSrv", function($scope, GenresListingSrv) {
     $scope.GenresSrv = GenresListingSrv, GenresListingSrv.getGenres(function(data) {})
 }]).controller("AlbumCtrl", ["$scope", "$routeParams", "AlbumSrv", "PlayListSrv", "navigationMenuService", "loggit", function($scope, $routeParams, AlbumSrv, PlayListSrv, navigationMenuService, loggit) {
@@ -20195,6 +20068,14 @@ angular.module("app.map", []).directive("uiJqvmap", [function() {
             albums = data, AlbumListingObj.albums = albums, callback(data)
         })
     }, AlbumListingObj
+}).factory("SongsListingSrv", function($http) {
+    var SongListingObj = {},
+        songs = [];
+    return SongListingObj.getSongs = function(callback) {
+        $http.get("data/songs").success(function(data) {
+            songs = data, SongListingObj.songs = songs, callback(data)
+        })
+    }, SongListingObj
 }).factory("GenresListingSrv", function($http) {
     var GenresListingObj = {},
         genres = [];

@@ -1,3 +1,6 @@
+<?php
+require('../kernel/core.php');
+?>
 <div class="page page-full page-dashboard two-column">
 
   <section class="inner-wrapper scrollable">
@@ -8,16 +11,15 @@
 
         <div class="dashboard-banner__content">
           <h2>
-            Find the Best songs, beat by beat
+            <?php echo $lang['index.title'] ?>
           </h2>
 
           <h5>
-            Groovy gives you access to the best music, anywhere. Start searching for songs by artist, album or genre and create your own
-            playlist to share with your friends
+            <?php echo $lang['index.subtitle'] ?>
           </h5>
 
           <a class="btn btn-primary" href="#/artist-list">
-            Start searching
+            <?php echo $lang['index.titleButton'] ?>
           </a>
 
         </div>
@@ -33,17 +35,17 @@
 
                 <div class="divider"></div>
 
-                <div data-ng-controller="AlbumsCtrl as albums">
+                <div data-ng-controller="SongsCtrl as songs">
                   <div class="row music-covers-listing minified">
 
-                    <div data-ng-repeat="album in AlbumsSrv.albums" class="col-md-3">
+                    <div data-ng-repeat="song in SongsSrv.songs" class="col-md-3">
 
                       <div class="list-item__wrap">
 
                         <div class="list-item__image">
-                          <img ng-src="data/images/{{album.artist}}/{{album.name}}/{{album.image}}"/>
+                          <img ng-src="data/images/{{song.artist}}/{{song.album}}/cover.jpg"/>
                           <div class="list-item__play">
-                            <a class="list-item__play-button" ng-href="#/artist/{{album.url_name}}">
+                            <a class="list-item__play-button" ng-href="#/artist/{{song.url_name}}">
                               <i class="fa fa-2x fa-stumbleupon">
 
                               </i>
@@ -53,10 +55,10 @@
 
                         <div class="list-item__name">
                           <h6 class="color-primary">
-                            {{album.artist}}
+                            {{song.artist}}
                           </h6>
                           <h6>
-                            {{album.name}}
+                            {{song.song}}
                           </h6>
                         </div>
                       </div>
@@ -70,15 +72,6 @@
 
 
             </tabset>
-
-            <div class="tabs-actions">
-              <i class="fa fa-bullseye">
-
-              </i>
-              <i class="fa fa-list">
-
-              </i>
-            </div>
 
           </div>
         </section>

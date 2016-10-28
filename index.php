@@ -1,11 +1,14 @@
-<!doctype html>
+<?php
+require('kernel/core.php');
+?><!doctype html>
 <!--[if gt IE 8]><!-->
 <html class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Groovy - AngularJS theme</title>
+  <title><?php echo $lang['title'] ?></title>
   <meta name="description" content="">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" >
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -23,7 +26,7 @@
 
 </head>
 <noscript>
-  <META HTTP-EQUIV="Refresh" CONTENT="0;URL=no-js.html">
+  <meta http-equiv="Refresh" content="0;URL=no-js.html">
 </noscript>
 <body data-ng-app="app" id="app" data-custom-background="" data-off-canvas-nav="" data-ng-controller="AdminAppCtrl">
 
@@ -32,13 +35,13 @@
   <audio media-player="mediaPlayer" playlist="generalPlaylist.audioPlaylist"></audio>
 
   <div data-ng-hide="checkIfOwnPage()" data-ng-cloak="" class="no-print">
-    <aside data-ng-include=" 'app/views/navigation.html' " id="nav-container"></aside>
+    <aside data-ng-include=" 'template/navigation.html' " id="nav-container"></aside>
   </div>
 
   <div class="view-container">
 
     <div data-ng-hide="checkIfOwnPage()" data-ng-cloak="" class="no-print">
-      <section data-ng-include=" 'app/views/header.html' " id="header" class="top-header"></section>
+      <section data-ng-include=" 'template/header.html' " id="header" class="top-header"></section>
     </div>
     <section data-ng-view="" id="content" class="animate-fade-up" ng-class="{fixed:checkIfFixedPage()}"></section>
   </div>
