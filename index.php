@@ -11,22 +11,17 @@ require('kernel/core.php');
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" >
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,700,600,400'
-        rel='stylesheet' type='text/css'>
-
   <!-- Include Jquery in the vendor folder -->
-  <script src="dist/js/jquery.min.js"></script>
+  <script src="style/js/jquery.min.js"></script>
 
   <!-- Theme's own CSS file -->
-  <link rel="stylesheet" href="dist/css/font-awesome.min.css">
-  <link rel="stylesheet" href="dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="dist/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="dist/css/main.css">
-
+  <link rel="stylesheet" href="style/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="style/css/main.css">
 </head>
 <noscript>
-  <meta http-equiv="Refresh" content="0;URL=no-js.html">
+  <meta http-equiv="Refresh" content="0;URL=no-js">
 </noscript>
 <body data-ng-app="app" id="app" data-custom-background="" data-off-canvas-nav="" data-ng-controller="AdminAppCtrl">
 
@@ -35,15 +30,15 @@ require('kernel/core.php');
   <audio media-player="mediaPlayer" playlist="generalPlaylist.audioPlaylist"></audio>
 
   <div data-ng-hide="checkIfOwnPage()" data-ng-cloak="" class="no-print">
-    <aside data-ng-include=" 'template/navigation.html' " id="nav-container"></aside>
+    <aside data-ng-include=" 'template/navigation.php' " id="nav-container"></aside>
   </div>
 
-  <div class="view-container">
+  <div class="view-container" id="headerContent">
 
     <div data-ng-hide="checkIfOwnPage()" data-ng-cloak="" class="no-print">
-      <section data-ng-include=" 'template/header.html' " id="header" class="top-header"></section>
+      <section data-ng-include=" 'template/header.php' " id="header" class="top-header"></section>
     </div>
-    <section data-ng-view="" id="content" class="animate-fade-up" ng-class="{fixed:checkIfFixedPage()}"></section>
+    <section data-ng-view id="content" class="animate-fade-up" ng-class="{fixed:checkIfFixedPage()}" style="background:#121212;background-image:url(<?php echo URL ?>/style/images/background.jpg);background-size:100% auto;background-attachment:fixed;background-position:center top;background-repeat:no-repeat;"></section>
   </div>
 
   <div class="player-region" ng-show="mediaPlayer.currentTrack">
@@ -111,33 +106,7 @@ require('kernel/core.php');
     </div>
   </div>
 </div>
-
-<!--Uncomment for deployment using Grunt-->
-<script type="text/javascript" src="dist/js/app.js"></script>
-
-<!--Uncomment for deployment without Grunt-->
-
-<!--<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="scripts/gmap.js"></script>
-<script type="text/javascript" src="bower_components/slimScroll/jquery.slimscroll.min.js"></script>
-<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
-<script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
-<script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
-<script type="text/javascript" src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-<script type="text/javascript" src="bower_components/angular-wizard/dist/angular-wizard.min.js"></script>
-<script type="text/javascript" src="bower_components/angular-ui-tree/dist/angular-ui-tree.js"></script>
-<script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-<script type="text/javascript" src="bower_components/angular-media-player/dist/angular-media-player.min.js"></script>
-<script type="text/javascript" src="bower_components/underscore/underscore-min.js"></script>
-<script type="text/javascript" src="bower_components/jqvmap/dist/jquery.vmap.min.js"></script>
-<script type="text/javascript" src="bower_components/html5shiv/dist/html5shiv.min.js"></script>
-<script type="text/javascript" src="scripts/angular-dragdrop.js"></script>
-<script type="text/javascript" src="scripts/extras.js"></script>
-<script type="text/javascript" src="app/app.js"></script>
-<script type="text/javascript" src="app/config.js"></script>
-<script type="text/javascript" src="app/controllers.js"></script>
-<script type="text/javascript" src="app/directives.js"></script>
-<script type="text/javascript" src="app/services.js"></script>-->
-
+<script type="text/javascript" src="style/js/app.js"></script>
+<script>var socket = new WebSocket('ws://localhost/send.php');</script>
 </body>
 </html>

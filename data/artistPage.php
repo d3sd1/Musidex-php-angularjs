@@ -1,12 +1,13 @@
 <?php
 require('../kernel/core.php');
-if($_GET['name'] == null || $db->query('SELECT id FROM artists WHERE keyname="'.$_GET['name'].'"')->num_rows == 0)
+$keynameFmt = $musidex::formatKeyname($_GET['name']);
+if(empty($_GET['name']) || @$_GET['name'] == null || $db->query('SELECT id FROM artists WHERE keyname="'.$keynameFmt.'"')->num_rows == 0)
 {
-	echo null;
+	echo 'error';
 }
 else
 {
-	$artistData = $db->query('SELECT id,keyname,name,genres FROM artists WHERE keyname="'.$_GET['name'].'"')->fetch_array();
+	$artistData = $db->query('SELECT id,keyname,name,genres FROM artists WHERE keyname="'.$keynameFmt.'"')->fetch_array();
 	/* Genres */
 	$artistGenres = explode(';',$artistData['genres']);
 	$artistGenresStr = null; $i = 0;

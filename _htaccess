@@ -1,0 +1,31 @@
+Options -Indexes
+ErrorDocument 401 /401.php
+ErrorDocument 403 /403.php
+ErrorDocument 404 /404.php
+ErrorDocument 500 /500.php
+Options -Indexes
+
+RewriteEngine On
+RewriteRule ^data/artists?$ data/artists.php
+RewriteRule ^data/albums?$ data/albums.php
+RewriteRule ^data/songs?$ data/songs.php
+RewriteRule ^data/songs/?$ data/songs.php
+RewriteRule ^data/genres?$ data/genres.php
+RewriteRule ^data/pages/artist/(\w+)?$ data/artistPage.php?name=$1
+RewriteRule ^data/post/artist?$ data/converse/artistPage.php
+RewriteRule ^actions/follow/(\w+)?$ data/actions/followManager.php?id=$1
+RewriteRule ^actions/register?$ data/actions/register.php
+RewriteRule ^actions/login?$ data/actions/login.php
+RewriteRule ^actions/logout?$ data/actions/logout.php
+RewriteRule ^no-js?$ no-js.php
+RewriteRule ^captcha/load?$ kernel/class/captcha/show.php
+#Protect JSON files
+#Protect CONFIG file
+<Files .conf>
+Order allow,deny
+Deny from all
+</Files>
+<Files .html>
+Order allow,deny
+Deny from all
+</Files>
